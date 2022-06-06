@@ -6,14 +6,12 @@ from .models import *
 def home(request):
     return render(request,'index.html')
 
-def forms(request):
+def toys(request):
     if request.method == "POST":
-        album_name = request.POST.get("album_name")
-        artist_name = request.POST.get("artist_name")
-        album_picture = request.POST.get("album_picture")
-        form = forms(album_name=album_name,
-        artist_name=artist_name,
-        album_picture=album_picture)
+        toy_name = request.POST.get("toy_name")
+        toy_picture = request.POST.get("toy_picture")
+        form = toys(toy_name=toy_name,
+        toy_picture=toy_picture)
         form.save()
         return HttpResponse("Successful")
-    return render(request, "forms.html")
+    return render(request, "toys.html")
